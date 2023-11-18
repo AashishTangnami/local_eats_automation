@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from .base_page import BasePage
-from utils.element_path import MERCHANT_INFO, SAVE_BUTTON
+from utils.element_path import SAVE_BUTTON_XPATH
 
 
 class MerchantInfo(BasePage):
@@ -12,7 +12,7 @@ class MerchantInfo(BasePage):
         super().__init__(driver)
     
     def navigate_to_restaurant_info(self, locator_type, locator_value):
-        self.click_action(locator_type, locator_value)
+        self.click_element(locator_type, locator_value)
 
     def clear_input_field_if_not_empty(self, locator):
         try:
@@ -35,18 +35,18 @@ class MerchantInfo(BasePage):
             print(f"Error filling out restaurant data: {e}")
         
 
-    def automate_information(self):
+    def automate_information(self, locator_type, locator_value, info_locator_type, info_locator_value, text=None):
         INFO = " This is test "
-        self.click_action(By.XPATH, MERCHANT_INFO)
-        self.enter_text(By.LINK_TEXT, INFO)
-        self.click_action(SAVE_BUTTON)
+        self.click_element(locator_type, locator_value)
+        self.enter_text(info_locator_type, info_locator_value, INFO)
+        self.click_element(SAVE_BUTTON_XPATH)
 
     def google_maps(self):
         LATTITUDE = ''
         LONGITUDE = ''
-        self.click_action(self.GOOGLE_MAPS_TAB)
+        self.click_element(self.GOOGLE_MAPS_TAB)
         self.enter_text(self.GOOGLE_MAPS_XPATH, LATTITUDE)
         self.enter_text(self.GOOGLE_MAPS_XPATH, LONGITUDE)
 
     def save(self):    
-        self.click_action(By.XPATH, SAVE_BUTTON)    
+        self.click_element(By.XPATH, SAVE_BUTTON_XPATH)    

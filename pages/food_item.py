@@ -7,9 +7,8 @@ class FoodItem(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    def navigate_to_food_item(self):
-        food_item_xpath = "//*[@id='yw0']/li[1]"
-        self.click_element((By.XPATH, food_item_xpath))
+    def navigate_to_food_item(self, locator_type, locator_value):
+        self.click_element((locator_type, locator_value))
 
 
     def add_food_item_name(self):
@@ -31,21 +30,21 @@ class FoodItem(BasePage):
         ONLY_ONE_OPTION_PATH = '//*[@id="FoodItemForm"]/div[5]/div[2]/div[1]/div/label'
         ONLY_ONE_OPTION = 'Can Select Only One'
         if required:
-            self.click_action(self.REQUIRED_OPTION)
+            self.click_element(self.REQUIRED_OPTION)
             self.select_by_option(self.ONLY_ONE_OPTION_PATH, ONLY_ONE_OPTION)
     
     def select_custom_options(self, required= None, CUSTOM_REQUIRED= None, ITEMS= None):
         if required and CUSTOM_REQUIRED:
-            self.click_action(self.REQUIRED_OPTION)
-            self.click_action(self.CUSTOM_REQUIRED)
+            self.click_element(self.REQUIRED_OPTION)
+            self.click_element(self.CUSTOM_REQUIRED)
             self.enter_text(self.ITEMS_REQUIRED, ITEMS)
 
     def select_multiple_options(self, required= None, MULTIPLE_REQUIRED= None, ITEMS= None):
         if required and MULTIPLE_REQUIRED:
-            self.click_action(self.REQUIRED_OPTION)
-            self.click_action(self.MULTIPLE_REQUIRED)
+            self.click_element(self.REQUIRED_OPTION)
+            self.click_element(self.MULTIPLE_REQUIRED)
             self.enter_text(self.ITEMS_REQUIRED, ITEMS)
 
 
     def save_food_item(self):
-        self.click_action(self.SAVE_BUTTON)
+        self.click_element(self.SAVE_BUTTON)

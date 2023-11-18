@@ -7,7 +7,7 @@ class BasePage:
         self.driver = driver
         self.wait = WebDriverWait(driver, 10)
 
-    def click_action(self, locator_type, locator_value):
+    def click_element(self, locator_type, locator_value):
         element = self.wait.until(
             EC.presence_of_element_located(
                 (locator_type, locator_value)

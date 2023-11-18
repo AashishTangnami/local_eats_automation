@@ -9,6 +9,7 @@ NAME = By.NAME
 TAG_NAME = By.TAG_NAME
 
 
+RECAPTCHA = "iframe[title='reCAPTCHA']"
 SIGN_IN_XPATH = '//*[@id="forms"]/div[4]/button'
 RESTRO_INFO_SAVE_XPATH = '//*[@id="forms"]/div/input'
 MERCHANT_INFO_XPATH = '//*[@id="forms"]/div/input'
@@ -21,9 +22,23 @@ SAVE_CSS_SELECTOR = "input[type='submit']"
 JTQE_TOOL_ICON = 'jqte_tool_icon' #class name
 JTQE_EDITOR = 'jqte_editor' #class name
 
-## Main Pages Link - use element by link
-MERCHANT_LINK_TEXT = "Merchant Info"
+
+## Main Pages Link - use element by XPATH
+MERCHANT_NAV_XPATH = '//*[@id="yw0"]/li[2]/a'
+SETTINGS_NAV_XPATH = '//*[@id="yw0"]/li[3]/a'
+FOOD_CATEGORY_NAV_XPATH = '//*[@id="yw0"]/li[6]/a'
+ADDON_CATEGORY_NAV_XPATH = '//*[@id="yw0"]/li[9]/a'
+ADDON_ITEM_NAV_XPATH = '//*[@id="yw0"]/li[10]/a'
+FOOD_ITEM_NAV_XPATH = '//*[@id="yw0"]/li[13]/a'
+
+
+
+
+MERCHANT_INFORMATION_XPATH = '//*[@id="merchant"]/div[2]/div[2]/div/div[2]/ul/li[2]/a'
+
+TAB_CONTENT = '//*[@id="tab-content"]/li[2]/div/div[3]/p[3]'
 SETTINGS_LINK_TEXT = "Settings"
+
 FOOD_CATEGORY_LINK_TEXT = "Food Category"
 ADDON_CATEGORY_LINK_TEXT = "AddOn Category"
 ADDON_ITEM_LINK_TEXT = "AddOn Item"
@@ -46,11 +61,10 @@ CUISINE_CHOOSEN_ID = 'cuisine_chosen'
 SERVICE_PICKUP_DELIVERY_ID = 'service'
 
 ## SETTINGS
-
 ORDER_VERIFICATION_NOTIFICATION_ID = 'order_verification'
 OTP_CODE_WAIT_TIME_ID = 'order_sms_code_waiting' # DEFAULT 5 MINS
 MERCHANT_TAX_ID = 'merchant_tax_number'
-MARCHANT_APPLY_TAX_ID = 'merchant_apply_tax'
+MERCHANT_APPLY_TAX_ID = 'merchant_apply_tax'
 MERCHANT_TAX = 'merchant_tax'
 MERCHANT_TIMEZONE_ID = 'merchant_timezone'
 MERCHANT_PREORDER_ID = 'merchant_preorder'

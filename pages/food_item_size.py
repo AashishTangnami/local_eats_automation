@@ -9,9 +9,9 @@ class FoodItemSize(BasePage):
         super().__init__(driver) 
     
     def navigate_to_food_item_size(self, locator_type, locator_value):
-        self.click_action((locator_type, locator_value))
+        self.click_element((locator_type, locator_value))
 
     def add_new_size(self, locator_type, locator_value, text):
         self.enter_text(locator_type, locator_value, text)
-        self.click_action((locator_type, locator_value))
-        self.click_action((locator_type, SAVE_BUTTON))
+        self.click_element((locator_type, locator_value))
+        self.click_element((locator_type, SAVE_BUTTON))
