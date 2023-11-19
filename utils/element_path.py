@@ -32,8 +32,6 @@ ADDON_ITEM_NAV_XPATH = '//*[@id="yw0"]/li[10]/a'
 FOOD_ITEM_NAV_XPATH = '//*[@id="yw0"]/li[13]/a'
 
 
-
-
 MERCHANT_INFORMATION_XPATH = '//*[@id="merchant"]/div[2]/div[2]/div/div[2]/ul/li[2]/a'
 
 TAB_CONTENT = '//*[@id="tab-content"]/li[2]/div/div[3]/p[3]'
@@ -60,16 +58,23 @@ RESTURANT_CUISINE_ID = 'cuisine'
 CUISINE_CHOOSEN_ID = 'cuisine_chosen'
 SERVICE_PICKUP_DELIVERY_ID = 'service'
 
+
+
+GET_CORDINATES = '//*[@id="tab-content"]/li[4]/div[3]/a'
+
+
+
 ## SETTINGS
 ORDER_VERIFICATION_NOTIFICATION_ID = 'order_verification'
 OTP_CODE_WAIT_TIME_ID = 'order_sms_code_waiting' # DEFAULT 5 MINS
-MERCHANT_TAX_ID = 'merchant_tax_number'
+MERCHANT_TAX_NUMBER_ID = 'merchant_tax_number'
 MERCHANT_APPLY_TAX_ID = 'merchant_apply_tax'
-MERCHANT_TAX = 'merchant_tax'
+MERCHANT_TAX_ID = 'merchant_tax'
 MERCHANT_TIMEZONE_ID = 'merchant_timezone'
 MERCHANT_PREORDER_ID = 'merchant_preorder'
-
-
+MERCHANT_APPLY_PREORDER_XPATH = '//*[@id="forms"]/div[43]/div'
+MERCHANT_DELIVERY_ESTIMATION_ID ='merchant_delivery_estimation'
+MERCHANT_DELIVERY_DISTANCE_ID = 'merchant_delivery_miles'
 ### FOOD CATEGORY 
 ADD_NEW_FOOD_CATEGORY_LINK_TEXT = 'Add New'
 FOOD_CATEGORY_NAME_ID = 'category_name'

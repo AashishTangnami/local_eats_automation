@@ -15,7 +15,7 @@ class FoodCategory(BasePage):
         super().__init__(driver)
 
     def navigate_to_food_category(self,locator_type, locator_value):
-        self.click_element((locator_type, locator_value))
+        self.click_element(locator_type, locator_value)
     
     def add_new_category(self):
         FOOD_CATGEGORY_NAME = 'Test Category'

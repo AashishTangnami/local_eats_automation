@@ -6,7 +6,7 @@ class Settings(BasePage):
         super().__init__(driver)
 
     def navigate_to_settings(self, locator_type, locator_value):
-        self.click_element((locator_type, locator_value))
+        self.click_element(locator_type, locator_value)
     
     def upload_image(self):
         pass

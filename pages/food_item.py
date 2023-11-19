@@ -8,7 +8,7 @@ class FoodItem(BasePage):
         super().__init__(driver)
 
     def navigate_to_food_item(self, locator_type, locator_value):
-        self.click_element((locator_type, locator_value))
+        self.click_element(locator_type, locator_value)
 
 
     def add_food_item_name(self):

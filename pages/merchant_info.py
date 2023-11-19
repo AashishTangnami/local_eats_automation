@@ -35,18 +35,21 @@ class MerchantInfo(BasePage):
             print(f"Error filling out restaurant data: {e}")
         
 
-    def automate_information(self, locator_type, locator_value, info_locator_type, info_locator_value, text=None):
+    def update_information(self, 
+                           locator_type, 
+                           locator_value, 
+                           info_locator_type, 
+                           info_locator_value, 
+                           text=None):
         INFO = " This is test "
         self.click_element(locator_type, locator_value)
         self.enter_text(info_locator_type, info_locator_value, INFO)
+        # self.click_element(ep.XPATH, SAVE_BUTTON_XPATH)
+
+    def google_maps(self, locator_type, locator_value, coordinates_type, coordinates_value):
+        self.click_element(locator_type, locator_value)
+        self.click_element(coordinates_type, coordinates_value)
         self.click_element(SAVE_BUTTON_XPATH)
 
-    def google_maps(self):
-        LATTITUDE = ''
-        LONGITUDE = ''
-        self.click_element(self.GOOGLE_MAPS_TAB)
-        self.enter_text(self.GOOGLE_MAPS_XPATH, LATTITUDE)
-        self.enter_text(self.GOOGLE_MAPS_XPATH, LONGITUDE)
-
-    def save(self):    
-        self.click_element(By.XPATH, SAVE_BUTTON_XPATH)    
+    def save(self, locator_type, locator_value):    
+        self.click_element(locator_type, locator_value)    

@@ -29,9 +29,9 @@ class BasePage:
             raise Exception(f"Element with locator {locator_type} not found or not visible.")
 
     def select_by_option(self, locator_type, locator_value, option):
-        select = Select(self.wait.until(
-            EC.visibility_of_element_located(
-                locator_type, locator_value)))
+        dropdown = self.wait.until(
+            EC.visibility_of_element_located((locator_type, locator_value)))
+        select = Select(dropdown)
         select.select_by_visible_text(option)
 
 

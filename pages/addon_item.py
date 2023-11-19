@@ -8,7 +8,7 @@ class AddOnItem(BasePage):
         super().__init__(driver)
 
     def navigate_to_addon_item(self, locator_type, locator_value):
-        self.click_element((locator_type, locator_value))    
+        self.click_element(locator_type, locator_value) 
 
     def new_addon_item(self):
         self.enter_text(self.ADDON_ITEM_NAME, "Test Addon Item")
