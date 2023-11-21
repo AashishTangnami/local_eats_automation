@@ -51,47 +51,41 @@ def food_category(driver):
     print('Food Category')
     food_category_obj = FoodCategory(driver)
     food_category_obj.navigate_to_food_category(ep.XPATH, ep.FOOD_CATEGORY_NAV_XPATH)
+    food_category_obj.click_element(ep.XPATH,ep.ADD_NEW_FOOD_CATEGORY_XPATH)
+    food_category_obj.enter_text(ep.ID, ep.FOOD_CATEGORY_NAME_ID, "Test Category")
+    food_category_obj.enter_text(ep.ID, ep.FOOD_CATEGORY_DESC_ID, "Test Description")  
+    food_category_obj.click_element(ep.XPATH, ep.FOOD_CATEGORY_SAVE_XPATH)
 
-    # food_category_obj.add_new_category(ep.LINK_TEXT, 
-    #                                    ep.ADD_NEW_FOOD_CATEGORY_LINK_TEXT, 
-    #                                    ep.FOOD_CATEGORY_NAME_ID, 
-    #                                    ep.FOOD_CATEGORY_DESC_ID)
-    # food_category_obj.save(ep.XPATH, ep.SAVE_BUTTON)
     print("Food Category Successful")
 
 def addon_category(driver):
     print('Addon Category')
     category_addon = AddOnCateogry(driver)
-    category_addon.navigate_to_addon_category(ep.XPATH, ep.ADDON_CATEGORY_NAV_XPATH)
-    # category_addon.add_new_category(ep.LINK_TEXT, 
-    #                                 ep.ADD_NEW_FOOD_CATEGORY_LINK_TEXT, 
-    #                                 ep.ADDON_CATEGORY_ID, 
-    #                                 ep.ADDON_CATEGORY_DESC_ID)
-    # category_addon.save(ep.XPATH, ep.SAVE_BUTTON)
+    category_addon.navigate_to_addon_category(ep.XPATH, '//*[@id="yw0"]/li[9]/a')
+    category_addon.click_element(ep.XPATH, '//*[@id="merchant"]/div[2]/div[2]/div/div[2]/div/a[1]')
+    category_addon.enter_text(ep.ID, ep.ADDON_CATEGORY_ID, "Test Category")
+    category_addon.enter_text(ep.ID, ep.ADDON_CATEGORY_DESC_ID, "Test Description")
+    category_addon.click_element(ep.XPATH, ep.ADD_ON_CATEGORY_SAVE)
     print("Addon Category Successful")
 
 def addon_item(driver):
     print('Addon Item')
     addon_item_obj = AddOnItem(driver)
     addon_item_obj.navigate_to_addon_item(ep.XPATH, ep.ADDON_ITEM_NAV_XPATH)
-    # addon_item_obj.add_new_item(ep.LINK_TEXT, 
-    #                             ep.ADD_NEW_FOOD_CATEGORY_LINK_TEXT, 
-    #                             ep.ADD_ON_ITEM_NAME_ID)
-    # addon_item_obj.save(ep.XPATH, ep.SAVE_BUTTON)
+    addon_item_obj.click_element(ep.XPATH, ep.ADDON_NEW_ITEM_XPATH)
+    addon_item_obj.enter_text(ep.ID, ep.ADD_ON_ITEM_NAME_ID, "Test Category Addon")
+    addon_item_obj.enter_text(ep.ID, ep.ADD_ON_ITEM_DESC_ID, "Test Description Addon")
+    addon_item_obj.enter_text(ep.ID, ep.ADDON_ITEM_PRICE_ID, "10.00")
+    addon_item_obj.click_element(ep.XPATH, ep.ADDON_ITEM_SAVE)
     print("Addon Item Successful")
 
 def food_item(driver):
     food_item_obj = FoodItem(driver)
     food_item_obj.navigate_to_food_item(ep.XPATH, ep.FOOD_ITEM_NAV_XPATH)
-
-    # food_item_obj.add_food_item_name(ep.FOOD_ITEM_NAME, "Test Food Item")
-    # food_item_obj.select_food_category(ep.FOOD_ITEM_DESC, "Test Description")
-    # food_item_obj.add_food_item_price(ep.FOOD_CATEGORY, "Test Category")  
-    # food_item_obj.add_food_item_size(ep.FOOD_ITEM_PRICE, "10.00")
-    # food_item_obj.select_only_one_option(ep.FOOD_ITEM_SIZE, "Test Size")
-    # food_item_obj.select_custom_options(ep.REQUIRED_OPTION, "Can Select Only One", "option")
-    # food_item_obj.select_multiple_options(ep.REQUIRED_OPTION, "Can Select Only One", "option")
-    # food_item_obj.save_food_item(ep.SAVE_BUTTON)
+    food_item_obj.click_element(ep.XPATH, ep.ADD_NEW_FOOD_ITEM_XPATH)
+    food_item_obj.enter_text(ep.ID, ep.FOOD_ITEM_NAME_ID, "Test Food Item")
+    food_item_obj.enter_text(ep.CLASS_NAME, ep.FOOD_ITEM_SELECTOR, "Test Description")
+    food_item_obj.click_element(ep.XPATH, ep.FOOD_ITEM_SAVE)
 
 def food_item_size(driver):
     food_item_size = FoodItemSize(driver)
@@ -111,7 +105,9 @@ def main():
     login_page(driver)
     merchant_info(driver)
     settings(driver)
+    driver.implicitly_wait(10)
     food_category(driver)
+    driver.implicitly_wait(10)
     addon_category(driver)
     addon_item(driver)
     food_item(driver)

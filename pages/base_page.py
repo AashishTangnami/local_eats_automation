@@ -9,7 +9,7 @@ class BasePage:
 
     def click_element(self, locator_type, locator_value):
         element = self.wait.until(
-            EC.presence_of_element_located(
+            EC.element_to_be_clickable(
                 (locator_type, locator_value)
             )
         )
