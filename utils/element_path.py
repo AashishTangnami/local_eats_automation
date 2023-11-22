@@ -1,5 +1,7 @@
 from selenium.webdriver.common.by import By
 
+
+############################# ELEMENT PATHS #############################
 ID = By.ID
 XPATH = By.XPATH
 LINKTEXT = By.LINK_TEXT
@@ -9,21 +11,17 @@ NAME = By.NAME
 TAG_NAME = By.TAG_NAME
 
 
+############################# ELEMENT PATHS #############################
 RECAPTCHA = "iframe[title='reCAPTCHA']"
 SIGN_IN_XPATH = '//*[@id="forms"]/div[4]/button'
 RESTRO_INFO_SAVE_XPATH = '//*[@id="forms"]/div/input'
 MERCHANT_INFO_XPATH = '//*[@id="forms"]/div/input'
 SAVE_BUTTON_XPATH = '//*[@id="forms"]/div/input'
-# //*[@id="forms"]/div/input
-# //*[@id="forms"]/div/input
-#//*[@id="forms"]/div/input
-#//*[@id="forms"]/div[47]/input , 
 SAVE_CSS_SELECTOR = "input[type='submit']"
 JTQE_TOOL_ICON = 'jqte_tool_icon' #class name
 JTQE_EDITOR = 'jqte_editor' #class name
 
-
-## Main Pages Link - use element by XPATH
+###################### MENU NAVIGATION PATHS ######################
 MERCHANT_NAV_XPATH = '//*[@id="yw0"]/li[2]/a'
 SETTINGS_NAV_XPATH = '//*[@id="yw0"]/li[3]/a'
 FOOD_CATEGORY_NAV_XPATH = '//*[@id="yw0"]/li[6]/a'
@@ -31,7 +29,7 @@ ADDON_CATEGORY_NAV_XPATH = '//*[@id="yw0"]/li[9]/a'
 ADDON_ITEM_NAV_XPATH = '//*[@id="yw0"]/li[10]/a'
 FOOD_ITEM_NAV_XPATH = '//*[@id="yw0"]/li[13]/a'
 
-
+###### ---------------------------------- ######
 MERCHANT_INFORMATION_XPATH = '//*[@id="merchant"]/div[2]/div[2]/div/div[2]/ul/li[2]/a'
 
 TAB_CONTENT = '//*[@id="tab-content"]/li[2]/div/div[3]/p[3]'
@@ -64,7 +62,7 @@ GET_CORDINATES = '//*[@id="tab-content"]/li[4]/div[3]/a'
 
 
 
-## SETTINGS
+################## SETTINGS ELEMENT PATH BY ID ##################
 ORDER_VERIFICATION_NOTIFICATION_ID = 'order_verification'
 OTP_CODE_WAIT_TIME_ID = 'order_sms_code_waiting' # DEFAULT 5 MINS
 MERCHANT_TAX_NUMBER_ID = 'merchant_tax_number'
@@ -76,7 +74,7 @@ MERCHANT_APPLY_PREORDER_XPATH = '//*[@id="forms"]/div[43]/div'
 MERCHANT_DELIVERY_ESTIMATION_ID ='merchant_delivery_estimation'
 MERCHANT_DELIVERY_DISTANCE_ID = 'merchant_delivery_miles'
 
-### FOOD CATEGORY 
+################## FOOD CATEGORY ELEMENT PATH ##################
 ADD_NEW_FOOD_CATEGORY_XPATH = '//*[@id="merchant"]/div[2]/div[2]/div/div[2]/div/a[1]'
 ADD_NEW_FOOD_CATEGORY_CSS_SELECTOR = '#yw0 > li:nth-child(6)'
 FOOD_CATEGORY_NAME_ID = 'category_name'
@@ -89,13 +87,13 @@ SIZE_ADD_NEW_XPATH = '//*[@id="merchant"]/div[2]/div[2]/div/div[2]/div/a[1]'
 ADD_SIZE_NAME_ID = 'size_name'
 
 
-# ADDON CATEGORY
+################## ADDON CATEGORY ELEMENT PATH ##################
 ADDON_NEW_FOOD_CATEGORY_XPATH = '//*[@id="merchant"]/div[2]/div[2]/div/div[2]/div[1]/a[1]'
 ADDON_CATEGORY_ID = 'subcategory_name'
 ADDON_CATEGORY_DESC_ID = 'subcategory_description'
 ADD_ON_CATEGORY_SAVE = '//*[@id="forms"]/div[4]/input'
 
-# ADDON ITEM
+################## ADDON ITEM ELEMENT PATH ##################
 # ADDON_ITEM_NAV_XPATH = '//*[@id="merchant"]/div[2]/div[2]/div/div[2]/div/a[1]'
 ADDON_NEW_ITEM_XPATH = '//*[@id="merchant"]/div[2]/div[2]/div/div[2]/div/a[1]'
 ADD_ON_ITEM_NAME_ID = 'sub_item_name'
@@ -103,7 +101,7 @@ ADD_ON_ITEM_DESC_ID = 'item_description'
 ADDON_ITEM_PRICE_ID = 'price'
 ADDON_ITEM_SAVE = '//*[@id="forms"]/div[3]/input'
 
-## FOOD ITEM
+################## FOOD ITEM ELEMENT PATH ##################
 FOOD_ITEM_NAME_ID = 'item_name'
 ADD_NEW_FOOD_ITEM_XPATH = '//*[@id="merchant"]/div[2]/div[2]/div/div[2]/div/a[1]'
 'jqte_tool_icon unselectable'

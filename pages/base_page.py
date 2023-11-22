@@ -1,19 +1,28 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
+from selenium.common.exceptions import StaleElementReferenceException, TimeoutException, NoSuchElementException
 
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(driver, 10)
+        self.wait = WebDriverWait(driver, 30)
 
     def click_element(self, locator_type, locator_value):
-        element = self.wait.until(
-            EC.element_to_be_clickable(
-                (locator_type, locator_value)
+        try:
+            element = self.wait.until(
+                EC.element_to_be_clickable(
+                    (locator_type, locator_value)
+                )
             )
-        )
-        element.click()
+            element.click()
+        except StaleElementReferenceException or (TimeoutException, NoSuchElementException) as e:
+            element = self.wait.until(
+                EC.element_to_be_clickable(
+                    (locator_type, locator_value)
+                )
+            )
+            element.click()
 
     def enter_text(self, locator_type, locator_value, text):
         try:
