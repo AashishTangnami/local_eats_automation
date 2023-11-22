@@ -1,7 +1,10 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
-from selenium.common.exceptions import StaleElementReferenceException, TimeoutException, NoSuchElementException
+from selenium.common.exceptions import (
+    StaleElementReferenceException, TimeoutException, NoSuchElementException,
+    ElementNotInteractableException, ElementClickInterceptedException, WebDriverException
+)
 
 class BasePage:
     def __init__(self, driver):
@@ -16,13 +19,22 @@ class BasePage:
                 )
             )
             element.click()
-        except StaleElementReferenceException or (TimeoutException, NoSuchElementException) as e:
-            element = self.wait.until(
-                EC.element_to_be_clickable(
-                    (locator_type, locator_value)
+        except (StaleElementReferenceException, TimeoutException, NoSuchElementException,
+                ElementNotInteractableException, ElementClickInterceptedException, WebDriverException) as e:
+            # Log the exception details here
+            print(f"Exception in click_element: {e}")
+            try:
+                # Retry logic, with a delay or a limit on retry attempts if necessary
+                element = self.wait.until(
+                    EC.element_to_be_clickable(
+                        (locator_type, locator_value)
+                    )
                 )
-            )
-            element.click()
+                element.click()
+            except Exception as e:
+                # Handle the case where the second attempt also fails
+                print(f"Retried click_element failed: {e}")
+                raise
 
     def enter_text(self, locator_type, locator_value, text):
         try:

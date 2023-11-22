@@ -47,16 +47,49 @@ def settings(driver):
     settings.click_element(ep.XPATH, '//*[@id="forms"]/div[47]/input')
     print("---------Settings Successful")
 
-def food_category(driver):
-    print('Food Category================')
+def food_category(driver, categories):
+    """
+    Create multiple food categories, handling duplicates and invalid data.
+
+    :param driver: The webdriver instance.
+    :param categories: A list of tuples, each containing the category name and description.
+    """
+    print('Food Categories Creation================')
+
     food_category_obj = FoodCategory(driver)
     food_category_obj.navigate_to_food_category(ep.XPATH, ep.FOOD_CATEGORY_NAV_XPATH)
-    food_category_obj.click_element(ep.XPATH,ep.ADD_NEW_FOOD_CATEGORY_XPATH)
-    food_category_obj.enter_text(ep.ID, ep.FOOD_CATEGORY_NAME_ID, "Test Category")
-    food_category_obj.enter_text(ep.ID, ep.FOOD_CATEGORY_DESC_ID, "Test Description")  
-    food_category_obj.click_element(ep.XPATH, ep.FOOD_CATEGORY_SAVE_XPATH)
 
-    print("---------Food Category Successful")
+    processed_categories = set()  # To track categories in this request
+
+    for name, description in categories:
+        # Skip if the category is already processed in this request
+        if name in processed_categories:
+            print(f"Duplicate category in request: {name}. Skipping.")
+            continue
+
+        # Skip invalid categories
+        if not name or not description:
+            print(f"Invalid category data: {name}, {description}. Skipping.")
+            continue
+
+        # Check for existing categories in the database
+        if food_category_obj.is_category_already_exists(name):
+            print(f"Category '{name}' already exists in the database. Skipping.")
+            continue
+
+        # Add to the processed set
+        processed_categories.add(name)
+
+        # Create category
+        food_category_obj.click_element(ep.XPATH, ep.ADD_NEW_FOOD_CATEGORY_XPATH)
+        food_category_obj.enter_text(ep.ID, ep.FOOD_CATEGORY_NAME_ID, name)
+        food_category_obj.enter_text(ep.ID, ep.FOOD_CATEGORY_DESC_ID, description)
+        food_category_obj.save_category()
+
+        print(f"Created category: {name}")
+
+    print("---------Food Categories Creation Successful")
+
 
 def addon_category(driver):
     print('Addon Category==================')
@@ -67,6 +100,36 @@ def addon_category(driver):
     category_addon.enter_text(ep.ID, ep.ADDON_CATEGORY_DESC_ID, "Test Description")
     category_addon.click_element(ep.XPATH, ep.ADD_ON_CATEGORY_SAVE)
     print("---------Addon Category Successful")
+
+def create_addon_categories(driver, categories):
+    """
+    Create multiple addon categories.
+
+    :param driver: The webdriver instance.
+    :param categories: A list of tuples, each containing the category name and description.
+    """
+    print('Addon Categories Creation================')
+
+    category_addon = AddOnCateogry(driver)
+    category_addon.click_element(ep.XPATH, ep.ADDON_CATEGORY_NAV_XPATH)
+
+    for name, description in categories:
+        if not name or not description:
+            print(f"Invalid addon category data: {name}, {description}. Skipping.")
+            continue
+
+        if category_addon.is_addon_category_already_exists(name):
+            print(f"Addon category '{name}' already exists. Skipping.")
+            continue
+
+        category_addon.click_element(ep.XPATH, ep.ADDON_NEW_FOOD_CATEGORY_XPATH)
+        category_addon.enter_text(ep.ID, ep.ADDON_CATEGORY_ID, name)
+        category_addon.enter_text(ep.ID, ep.ADDON_CATEGORY_DESC_ID, description)
+        category_addon.save_addon_category()
+
+        print(f"Created addon category: {name}")
+
+    print("---------Addon Categories Creation Successful")
 
 def addon_item(driver):
     print('Addon Item====================')
@@ -97,6 +160,32 @@ def food_item_size(driver):
 
 def main():
 
+
+
+    category_entries = [
+    # Valid entries
+    ("Fresh Produce", "Fruits and vegetables"),
+    ("Bakery", "Breads, pastries, and cakes"),
+    ("Dairy", "Milk, cheese, and eggs"),
+
+    # Duplicate entries (these should be skipped on processing)
+    ("Fresh Produce", "Fruits, vegetables"),
+    ("Bakery", "Fresh bread and pastries"),
+
+    # Invalid entries (empty name or description)
+    ("", "Empty name category"),
+    ("Invalid Category", ""),
+    (None, "None as category name"),
+    ("None Description", None),
+
+    # Entries with special characters
+    ("Beverages & More", "Drinks, wines, and beers"),
+    ("Frozen Foods", "Frozen meals and vegetables"),
+
+    # Long name and description
+    ("Gourmet and International Foods with a Variety of Choices", "A wide range of international cuisines and gourmet choices that cater to diverse taste preferences"),
+]
+
     url = "https://fareeats.coop/merchant/login"
     driver = DriverFactory.get_chrome_driver()
     driver.get(url)
@@ -106,7 +195,11 @@ def main():
     login_page(driver)
     merchant_info(driver)
     settings(driver)
-    food_category(driver)
+    # food_category(driver)
+
+    # Pass these entries to the function
+    food_category(driver, category_entries)
+
     addon_category(driver)
     addon_item(driver)
     food_item(driver)
