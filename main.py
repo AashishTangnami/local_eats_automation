@@ -11,7 +11,7 @@ from pages.addon_category import AddOnCateogry
 from pages.food_item import FoodItem
 from pages.addon_item import AddOnItem
 from pages.food_item_size import FoodItemSize
-from utils.data import FOOD_CATGEGORIES, ADDON_CATEGORIES, ADDON_ITEMS
+from utils.data import FOOD_CATGEGORIES, ADDON_CATEGORIES, ADDON_ITEMS, FOOD_ITEM
 
 def login_page(driver):
     load_dotenv()
@@ -102,16 +102,41 @@ def addon_item(driver, addon_item_values):
     
     print("---------Addon Item Successful")
 
-def food_item(driver):
-    print('Food Item====================')
+# def food_item(driver, food_item):
+#     print('Food Item====================')
+#     food_item_obj = FoodItem(driver)
+#     food_item_obj.navigate_to_food_item()
+
+#     food_item_obj.add_new_food_item()
+    
+#     print("---------Food Item Successful")
+def add_food_item(driver, food_item_data):
+    print('Adding Food Item====================')
     food_item_obj = FoodItem(driver)
     food_item_obj.navigate_to_food_item()
-    food_item_obj.click_element(ep.XPATH, ep.ADD_NEW_FOOD_ITEM_XPATH)
-    food_item_obj.enter_text(ep.ID, ep.FOOD_ITEM_NAME_ID, "Test Food Item")
-    food_item_obj.enter_text(ep.CLASS_NAME, ep.FOOD_ITEM_SELECTOR, "Test Description")
-    food_item_obj.click_element(ep.XPATH, ep.FOOD_ITEM_SAVE)
-    print("---------Food Item Successful")
+    food_item_obj.add_new_food_item()
 
+    food_item_name = food_item_data['Food Item Name']
+    food_item_obj.enter_food_item_name(food_item_name)
+    
+    food_item_desc = food_item_data['Food Item Desc']
+    food_item_obj.enter_food_item_description(food_item_desc)
+
+    food_item_price = food_item_data['Price']
+    food_item_obj.enter_food_item_price(food_item_price)
+
+    food_category = food_item_data['Food Category']
+    food_item_obj.select_food_category(food_category)
+
+    addon_categories = food_item_data['Addon Category']
+    for addon_category in addon_categories:
+        food_item_obj.select_food_item_addon_category(addon_category)
+        addon_items = addon_category['Addon Items']
+        food_item_obj.select_food_item_addon_item(addon_items)
+
+    food_item_obj.save_food_item()
+    print("---------Food Item Added Successfully")
+    
 def food_item_size(driver):
     food_item_size = FoodItemSize(driver)
     food_item_size.navigate_to_food_item_size(By.XPATH, ep.FOOD_ITEM_SIZE)
@@ -135,7 +160,7 @@ def main():
     addon_category(driver, ADDON_CATEGORIES)
     driver.implicitly_wait(10)
     addon_item(driver, ADDON_ITEMS)
-    # food_item(driver)
+    food_item(driver, FOOD_ITEM)
 
 if __name__ == '__main__':
     main()

@@ -109,13 +109,14 @@ ADDON_ITEM_CATEGORY_XPATH = '//*[@id="forms"]/div[1]/div[2]'
 ADDON_ITEM_SAVE = '//*[@id="forms"]/div[3]/input'
 
 ################## FOOD ITEM ELEMENT PATH ##################
-FOOD_ITEM_NAME_ID = 'item_name'
 ADD_NEW_FOOD_ITEM_XPATH = '//*[@id="merchant"]/div[2]/div[2]/div/div[2]/div/a[1]'
-'jqte_tool_icon unselectable'
+FOOD_ITEM_NAME_ID = 'item_name'
+FOOD_ITEM_PRICE_ID = 'price'
 FOOD_ITEM_SELECTOR = 'jqte_editor'
 FOOD_ITEM_SAVE = '//*[@id="forms"]/div[3]/input'
-
-
+FOOD_ITEM_FOOD_CATEGORY_XPATH = '//*[@id="forms"]/div[1]/div[2]/div[11]'
+FOOD_ITEM_ADDON_ITEM_XPATH = '//*[@id="forms"]/div[1]/div[1]/ul'
 MULTI_OPTION_21 = 'multi_option_21'
 MULTI_OPTION_22 = 'multi_option_22'
+SAVE_FOOD_ITEM_BUTTON_XPATH = '//*[@id="forms"]/div[3]/input'
 
