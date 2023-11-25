@@ -31,7 +31,10 @@ FOOD_ITEM_NAV_XPATH = '//*[@id="yw0"]/li[13]/a'
 
 ###### ---------------------------------- ######
 MERCHANT_INFORMATION_XPATH = '//*[@id="merchant"]/div[2]/div[2]/div/div[2]/ul/li[2]/a'
-
+'//*[@id="yw0"]/li[2]/a'
+'//*[@id="merchant"]/div[2]/div[2]/div/div[2]/ul/li[2]/a'
+GOOGLE_MAPS_XPATH = '//*[@id="tab-content"]/li[4]/div[3]/a'
+MERCHANT_RESTURANT_INFORMATION_XPATH = '//*[@id="merchant"]/div[2]/div[2]/div/div[2]/ul/li[1]/a'
 TAB_CONTENT = '//*[@id="tab-content"]/li[2]/div/div[3]/p[3]'
 SETTINGS_LINK_TEXT = "Settings"
 
@@ -73,6 +76,7 @@ MERCHANT_PREORDER_ID = 'merchant_preorder'
 MERCHANT_APPLY_PREORDER_XPATH = '//*[@id="forms"]/div[43]/div'
 MERCHANT_DELIVERY_ESTIMATION_ID ='merchant_delivery_estimation'
 MERCHANT_DELIVERY_DISTANCE_ID = 'merchant_delivery_miles'
+SAVE_SETTINGS_XPATH = '//*[@id="forms"]/div[47]/input'
 
 ################## FOOD CATEGORY ELEMENT PATH ##################
 ADD_NEW_FOOD_CATEGORY_XPATH = '//*[@id="merchant"]/div[2]/div[2]/div/div[2]/div/a[1]'
@@ -99,6 +103,7 @@ ADDON_NEW_ITEM_XPATH = '//*[@id="merchant"]/div[2]/div[2]/div/div[2]/div/a[1]'
 ADD_ON_ITEM_NAME_ID = 'sub_item_name'
 ADD_ON_ITEM_DESC_ID = 'item_description'
 ADDON_ITEM_PRICE_ID = 'price'
+ADDON_ITEM_CATEGORY_XPATH = '//*[@id="forms"]/div[1]/div[2]'
 ADDON_ITEM_SAVE = '//*[@id="forms"]/div[3]/input'
 
 ################## FOOD ITEM ELEMENT PATH ##################

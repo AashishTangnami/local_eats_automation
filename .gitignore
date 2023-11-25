@@ -2,3 +2,4 @@
 /assets/
 /pages/__pycache__/
 /utils/__pycache__/
+/utils/data.py/

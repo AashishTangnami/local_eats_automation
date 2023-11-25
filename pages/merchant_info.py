@@ -2,7 +2,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from .base_page import BasePage
-from utils.element_path import SAVE_BUTTON_XPATH
+from utils import element_path as ep
+
 
 
 class MerchantInfo(BasePage):
@@ -11,9 +12,24 @@ class MerchantInfo(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
     
-    def navigate_to_restaurant_info(self, locator_type, locator_value):
-        self.click_element(locator_type, locator_value)
+    def navigate_to_merchant_info(self):
+        self.click_element(ep.XPATH, ep.MERCHANT_NAV_XPATH)
 
+    def navigate_to_resturant_info(self):
+        self.click_element(ep.XPATH, ep.MERCHANT_RESTURANT_INFORMATION_XPATH)
+
+    def navigate_to_informatin(self):
+        self.click_element(ep.XPATH, ep.MERCHANT_INFORMATION_XPATH)
+    
+    def navigate_to_google_maps(self):
+        self.click_element(ep.XPATH, ep.GOOGLE_MAPS_XPATH)
+
+    def enter_merchnat_information(self, text):
+        self.enter_text(ep.CLASS_NAME, ep.JTQE_EDITOR, text)
+        self.save()
+
+
+    
     def clear_input_field_if_not_empty(self, locator):
         try:
             input_element = self.wait.until(
@@ -46,10 +62,6 @@ class MerchantInfo(BasePage):
         self.enter_text(info_locator_type, info_locator_value, INFO)
         # self.click_element(ep.XPATH, SAVE_BUTTON_XPATH)
 
-    def google_maps(self, locator_type, locator_value, coordinates_type, coordinates_value):
-        self.click_element(locator_type, locator_value)
-        self.click_element(coordinates_type, coordinates_value)
-        self.click_element(SAVE_BUTTON_XPATH)
 
-    def save(self, locator_type, locator_value):    
-        self.click_element(locator_type, locator_value)    
+    def save(self):    
+        self.click_element(ep.XPATH, ep.SAVE_BUTTON_XPATH)    

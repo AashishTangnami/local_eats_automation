@@ -1,20 +1,51 @@
 
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
-
+from utils import element_path as ep
 
 class AddOnItem(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    def navigate_to_addon_item(self, locator_type, locator_value):
-        self.click_element(locator_type, locator_value) 
+    def navigate_to_addon_item(self):
+        self.click_element(ep.XPATH, ep.ADDON_ITEM_NAV_XPATH) 
 
-    def new_addon_item(self):
-        self.enter_text(self.ADDON_ITEM_NAME, "Test Addon Item")
-        self.enter_text(self.ADDON_ITEM_DESC, "Test Description")
-        self.enter_text(self.ADDON_ITEM_PRICE, "10.00")
-        self.select_by_option(self.SELECT_BY_OPTION, "option")
-        
+    def add_new_addon_item(self):
+        self.click_element(ep.XPATH, ep.ADDON_NEW_ITEM_XPATH)
+
+    def enter_addon_item_name(self, addon_item_name):
+        self.enter_text(ep.ID, ep.ADD_ON_ITEM_NAME_ID, addon_item_name)
+
+    def enter_addon_item_description(self, addon_item_description):
+        self.enter_text(ep.ID, ep.ADD_ON_ITEM_DESC_ID, addon_item_description)
+
+    def select_addon_category(self, addon_category):
+        try:
+            # Find the common element using the provided XPath
+            check_element = self.driver.find_element(By.XPATH, ep.ADDON_ITEM_CATEGORY_XPATH)
+            
+            # Find all checkbox labels within the element
+            checkbox_labels = check_element.find_elements(By.XPATH, './/ul/li')
+
+            if checkbox_labels:
+                addon_category_name = addon_category['Addon Category Name']
+                found_checkbox = False
+
+                for label in checkbox_labels:
+                    label_text = label.text.strip()
+                    if addon_category_name in label_text:
+                        checkbox_input = label.find_element(By.XPATH, './/input[@type="checkbox"]')
+                        checkbox_input.click()
+                        found_checkbox = True
+                        break
+
+                if not found_checkbox:
+                    print(f"Addon category '{addon_category_name}' not found.")
+            else:
+                print("No checkboxes found within the element.")
+
+        except Exception as e:
+            print(f"An error occurred: {str(e)}")
+
     def save(self):   
-        self.click_element(self.SAVE_BUTTON)
+        self.click_element(ep.XPATH, ep.ADDON_ITEM_SAVE)
