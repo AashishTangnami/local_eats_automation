@@ -9,8 +9,8 @@ class Settings(BasePage):
     def navigate_to_settings(self):
         self.click_element(ep.XPATH, ep.SETTINGS_NAV_XPATH)
     
-    def enter_tax_rate(self, tax_rate):
-        self.enter_text(ep.ID, ep.MERCHANT_TAX_ID, tax_rate='13')
+    def enter_tax_rate(self, tax_rate='13'):
+        self.enter_text(ep.ID, ep.MERCHANT_TAX_ID, tax_rate)
 
     def apply_merchant_tax(self):
         self.click_element(ep.ID, ep.MERCHANT_APPLY_TAX_ID)

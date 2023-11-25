@@ -1,4 +1,4 @@
-food_categories = [
+FOOD_CATGEGORIES = [
     {
     'Category Name' : 'Buy 1 Get 1 Free',
     'Category Desc' : ''
@@ -16,7 +16,7 @@ food_categories = [
      'Category Desc' : ''}
 ]
 
-addon_categories = [
+ADDON_CATEGORIES = [
     {
         'Category Name': 'Pick Your Studio Crust',
         'Category Desc': ''
@@ -43,14 +43,41 @@ addon_categories = [
     }
 ]
 
-addon_item_values = {
-    'Addon Category Name' : 'Pick Your Studio Crust',
-    'Addon Items' : {'Traditional',
-    'Firecracker',
-    'Gluten Free Crust',
-    'Cauliflower Crust (GF)',
-    'Whoel Grain & Flax Seed',
-    'Rosemary Herb Crust'
+ADDON_ITEMS = [
+    {
+        'Addon Category Name': 'Pick Your Studio Crust',
+        'Addon Items': [
+            {
+                'Add on Name': 'Traditional',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'Firecracker',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'Gluten Free Crust',
+                'Add on Desc': '',
+                'Price': '3.00'
+            },
+            {
+                'Add on Name': 'Cauliflower Crust (GF)',
+                'Add on Desc': 'Popular',
+                'Price': '3.00'
+            },
+            {
+                'Add on Name': 'Whole Grain & Flax Seed',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'Rosemary Herb Crust',
+                'Add on Desc': '',
+                'Price': '0.00'
+            }
+        ]
     }
-}
+]
 

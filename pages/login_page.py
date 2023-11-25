@@ -1,10 +1,8 @@
 from selenium.webdriver.common.by import By
-from utils.element_path import ID, XPATH, CSS_SELECTOR, SIGN_IN_XPATH
+from utils.element_path import ID, XPATH, SIGN_IN_XPATH
 from .base_page import BasePage
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
-  # This will load variables from .env
-
 
 def handle_captcha(self, locator_type, locator_value):
         """Method to handle CAPTCHA manually."""

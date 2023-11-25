@@ -26,7 +26,7 @@ class MerchantInfo(BasePage):
 
     def enter_merchnat_information(self, text):
         self.enter_text(ep.CLASS_NAME, ep.JTQE_EDITOR, text)
-        self.save()
+        self.save(self)
 
 
     

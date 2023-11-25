@@ -22,7 +22,7 @@ class BasePage:
         except (StaleElementReferenceException, TimeoutException, NoSuchElementException,
                 ElementNotInteractableException, ElementClickInterceptedException, WebDriverException) as e:
             # Log the exception details here
-            print(f"Exception in click_element: {e}")
+            # print(f"Exception in click_element: {e}")
             try:
                 # Retry logic, with a delay or a limit on retry attempts if necessary
                 element = self.wait.until(
@@ -31,10 +31,11 @@ class BasePage:
                     )
                 )
                 element.click()
-            except Exception as e:
+            except (StaleElementReferenceException, TimeoutException, NoSuchElementException,
+                ElementNotInteractableException, ElementClickInterceptedException, WebDriverException) as e:
                 # Handle the case where the second attempt also fails
-                print(f"Retried click_element failed: {e}")
-                raise
+                # print(f"Retried click_element failed: {e}")
+                pass
 
     def enter_text(self, locator_type, locator_value, text):
         try:

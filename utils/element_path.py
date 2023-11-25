@@ -10,6 +10,7 @@ CLASS_NAME = By.CLASS_NAME
 NAME = By.NAME
 TAG_NAME = By.TAG_NAME
 
+'//*[@id="merchant"]/div[2]/div[2]/div[1]/div[2]/div[1]/a[1]'
 
 ############################# ELEMENT PATHS #############################
 RECAPTCHA = "iframe[title='reCAPTCHA']"
@@ -79,8 +80,9 @@ MERCHANT_DELIVERY_DISTANCE_ID = 'merchant_delivery_miles'
 SAVE_SETTINGS_XPATH = '//*[@id="forms"]/div[47]/input'
 
 ################## FOOD CATEGORY ELEMENT PATH ##################
-ADD_NEW_FOOD_CATEGORY_XPATH = '//*[@id="merchant"]/div[2]/div[2]/div/div[2]/div/a[1]'
-ADD_NEW_FOOD_CATEGORY_CSS_SELECTOR = '#yw0 > li:nth-child(6)'
+ADD_NEW_FOOD_CATEGORY_XPATH = '//*[@id="merchant"]/div[2]/div[2]/div[1]/div[2]/div/a[1]'
+ADD_NEW_FOOD_CATEGORY_NEW_XPATH = '//*[@id="merchant"]/div[2]/div[2]/div/div[2]/div[1]/a[1]'
+ADD_NEW_FOOD_CATEGORY_CSS_SELECTOR = '#yw0 > li:nth-child(6)' 
 FOOD_CATEGORY_NAME_ID = 'category_name'
 FOOD_CATEGORY_DESC_ID = 'category_description'
 FOOD_CATEGORY_SAVE_XPATH = '//*[@id="forms"]/div/div[8]/input'

@@ -11,7 +11,7 @@ from pages.addon_category import AddOnCateogry
 from pages.food_item import FoodItem
 from pages.addon_item import AddOnItem
 from pages.food_item_size import FoodItemSize
-from utils.data import food_categories, addon_categories, addon_item_values
+from utils.data import FOOD_CATGEGORIES, ADDON_CATEGORIES, ADDON_ITEMS
 
 def login_page(driver):
     load_dotenv()
@@ -26,9 +26,6 @@ def merchant_info(driver):
     print('Merchant Info====================')
     merchant_page = MerchantInfo(driver)
     merchant_page.navigate_to_merchant_info()
-    merchant_page.update_information(ep.XPATH, ep.MERCHANT_INFORMATION_XPATH, 
-                                     ep.CLASS_NAME, ep.JTQE_EDITOR)
-    merchant_page.save(ep.XPATH, ep.SAVE_BUTTON_XPATH)
     print("---------Merchant Info Successful")
 
 def settings(driver):
@@ -43,44 +40,35 @@ def settings(driver):
     settings_page.enter_delivery_distance("10")
     settings_page.select_timezone("America/Chicago")
     settings_page.apply_preorder()
-    settings_page.save(ep.XPATH, ep.SAVE_SETTINGS_XPATH)
+    settings_page.save()
     print("---------Settings Successful")
 
-# def food_category(driver, food_categories):
-#     print('Food Category================')
-#     food_category_obj = FoodCategory(driver)
-#     for food_category in food_categories:
-#         food_category_obj.navigate_to_food_category()
-#         food_category_obj.add_new_food_category()
-#         food_category_obj.enter_food_category_name(food_category)
-#         food_category_obj.enter_food_category_description(food_category['Food Category Description'])
-#         food_category_obj.save(ep.XPATH, ep.FOOD_CATEGORY_SAVE_XPATH)
-
-#     print("---------Food Category Successful")
 def food_category(driver, food_categories):
     print('Food Category================')
     food_category_obj = FoodCategory(driver)
     food_category_obj.navigate_to_food_category()
+    
+    is_first_iteration = True  # Flag to track the first iteration
+    
     for category_data in food_categories:
-
         category_name = category_data['Category Name']
         category_desc = category_data['Category Desc']
-        food_category_obj.add_new_food_category()
+        
+        if is_first_iteration:
+            # On the first iteration, use the original XPath
+            food_category_obj.add_new_food_category(ep.ADD_NEW_FOOD_CATEGORY_XPATH)
+            is_first_iteration = False
+        else:
+            # On subsequent iterations, use the new XPath
+            food_category_obj.add_new_food_category(ep.ADD_NEW_FOOD_CATEGORY_NEW_XPATH)
+        
         food_category_obj.enter_food_category_name(category_name)
-        food_category_obj.enter_food_category_description(category_desc)  
+        food_category_obj.enter_food_category_description(category_desc)
         food_category_obj.save()
-
+    
     print("---------Food Category Successful")
 
-# def addon_category(driver):
-#     print('Addon Category==================')
-#     category_addon = AddOnCateogry(driver)
-#     category_addon.click_element()
-#     category_addon.click_element()
-#     category_addon.enter_text(ep.ID, ep.ADDON_CATEGORY_ID, "Test Category")
-#     category_addon.enter_text(ep.ID, ep.ADDON_CATEGORY_DESC_ID, "Test Description")
-#     category_addon.click_element(ep.XPATH, ep.ADD_ON_CATEGORY_SAVE)
-#     print("---------Addon Category Successful")
+
 def addon_category(driver, addon_categories):
     print('Addon Category==================')
     category_addon = AddOnCateogry(driver)
@@ -96,26 +84,28 @@ def addon_category(driver, addon_categories):
 
     print("---------Addon Category Successful")
 
-
 def addon_item(driver, addon_item_values):
     print('Addon Item====================')
     addon_item_page = AddOnItem(driver)
     addon_item_page.navigate_to_addon_item()
 
-    addon_category_name = addon_item_values['Addon Category Name']
-    addon_items = addon_item_values['Addon Items']
+    addon_category_name = addon_item_values[0]['Addon Category Name']
+    addon_items = addon_item_values[0]['Addon Items']
+    
     for addon_item in addon_items:
         addon_item_page.add_new_addon_item()
-        addon_item_page.enter_addon_item_name(addon_item)
-        addon_item_page.enter_addon_item_description("")  # You can provide a description if needed
+        addon_item_page.enter_addon_item_name(addon_item['Add on Name'])
+        addon_item_page.enter_addon_item_description(addon_item['Add on Desc'])
         addon_item_page.select_addon_category({'Addon Category Name': addon_category_name})
+        addon_item_page.enter_addon_item_price(addon_item['Price'])
         addon_item_page.save()
+    
     print("---------Addon Item Successful")
 
 def food_item(driver):
     print('Food Item====================')
     food_item_obj = FoodItem(driver)
-    food_item_obj.navigate_to_food_item(ep.XPATH, ep.FOOD_ITEM_NAV_XPATH)
+    food_item_obj.navigate_to_food_item()
     food_item_obj.click_element(ep.XPATH, ep.ADD_NEW_FOOD_ITEM_XPATH)
     food_item_obj.enter_text(ep.ID, ep.FOOD_ITEM_NAME_ID, "Test Food Item")
     food_item_obj.enter_text(ep.CLASS_NAME, ep.FOOD_ITEM_SELECTOR, "Test Description")
@@ -139,10 +129,13 @@ def main():
     login_page(driver)
     merchant_info(driver)
     settings(driver)
-    food_category(driver, food_categories)
-    addon_category(driver, addon_categories)
-    addon_item(driver, addon_item_values)
-    food_item(driver)
+    driver.implicitly_wait(10)
+    food_category(driver, FOOD_CATGEGORIES)
+    driver.implicitly_wait(10)
+    addon_category(driver, ADDON_CATEGORIES)
+    driver.implicitly_wait(10)
+    addon_item(driver, ADDON_ITEMS)
+    # food_item(driver)
 
 if __name__ == '__main__':
     main()
