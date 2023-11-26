@@ -43,7 +43,7 @@ ADDON_CATEGORIES = [
     }
 ]
 
-ADDON_ITEMS = [
+ADDON_ITEMS_1 = [
     {
         'Addon Category Name': 'Pick Your Studio Crust',
         'Addon Items': [
@@ -82,6 +82,230 @@ ADDON_ITEMS = [
 ]
 
 
+
+ADDON_ITEMS_2 = [
+    {
+        'Addon Category Name': 'Spread Your Sauce',
+        'Addon Items': [
+            {
+                'Add on Name': 'Tomato Blend',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'Chipotle Tomato Blend',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'Smokey BBQ',
+                'Add on Desc': '',
+                'Price': '3.00'
+            },
+            {
+                'Add on Name': 'Spicy Buffalo',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'Basil Pesto',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'Garlic Alfredo',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'Extra Virgin Olive Oil',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'Butter Chicken',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'No Sauce',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+        ]
+    }
+]
+ADDON_ITEMS_3 = [
+    {
+        'Addon Category Name': 'Choose Your Cheese',
+        'Addon Items': [
+            {
+                'Add on Name': 'Freshly Grated Mozzarella',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'Extra Mozzarella',
+                'Add on Desc': '',
+                'Price': '1.50'
+            },
+            {
+                'Add on Name': 'Vegan Cheese',
+                'Add on Desc': '',
+                'Price': '1.50'
+            },
+            {
+                'Add on Name': 'No Cheese',
+                'Add on Desc': 'Popular',
+                'Price': '3.00'
+            }
+        ]
+    }
+]
+ADDON_ITEMS_4 = [
+    {
+        'Addon Category Name': 'Add Your Protein',
+        'Addon Items': [
+            {
+                'Add on Name': 'Pepperoni',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'Ham',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'Buffalo Chicken',
+                'Add on Desc': '',
+                'Price': '3.00'
+            },
+            {
+                'Add on Name': 'Chorizo Sausage',
+                'Add on Desc': 'Popular',
+                'Price': '3.00'
+            },
+            {
+                'Add on Name': 'Grilled Chicken',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'Italian Sausage',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'Bacon Crumble',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'Beef Crumble',
+                'Add on Desc': '',
+                'Price': '0.00'
+            }
+        ]
+    }
+]
+ADDON_ITEMS_5 = [
+    {
+        'Addon Category Name': 'Load Your Toppings',
+        'Addon Items': [
+            {
+                'Add on Name': 'Pepperoni',
+                'Add on Desc': '',
+                'Price': '0.00',
+            },
+            {
+                'Add on Name': 'Sausage',
+                'Add on Desc': '',
+                'Price': '0.00',
+            },
+            {
+                'Add on Name': 'Canadian Bacon',
+                'Add on Desc': '',
+                'Price': '0.00',
+            },
+            {
+                'Add on Name': 'Bacon',
+                'Add on Desc': '',
+                'Price': '0.00',
+            },
+            {
+                'Add on Name': 'Grilled Chicken',
+                'Add on Desc': '',
+                'Price': '0.00',
+            },
+            {
+                'Add on Name': 'Meatballs',
+                'Add on Desc': '',
+                'Price': '0.00',
+            },
+            {
+                'Add on Name': 'Salami',
+                'Add on Desc': '',
+                'Price': '0.00',
+            },
+            {
+                'Add on Name': 'Anchovies',
+                'Add on Desc': '',
+                'Price': '0.00',
+            },
+            {
+                'Add on Name': 'Artichoke Hearts',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'Black Olives',
+                'Add on Desc': '',
+                'Price': '0.00',
+            },
+            {
+                'Add on Name': 'Green Olives',
+                'Add on Desc': '',
+                'Price': '0.00',
+            },
+            {
+                'Add on Name': 'Mushrooms',
+                'Add on Desc': '',
+                'Price': '0.00'
+            },
+            {
+                'Add on Name': 'Red Onions',
+                'Add on Desc': '',
+                'Price': '0.00',
+            },
+            {
+                'Add on Name': 'Green Peppers',
+                'Add on Desc': '',
+                'Price': '0.00',
+            }
+        ]
+    }
+]
+
+ADDON_ITEMS_6 = [
+    {
+        'Addon Category Name': 'Specialty Toppings',
+        'Addon Items': [
+            {
+                'Add on Name': 'Plant Based Meatballs',
+                'Add on Desc': '',
+                'Price': '3.00'
+            },
+            {
+                'Add on Name': 'Meatballs',
+                'Add on Desc': '',
+                'Price': '4.00'
+            }
+        ]
+    }
+]
+
+
 FOOD_ITEM = [
     {
         'Food Item Name': 'Create Your Own 10" Pizza',
@@ -93,118 +317,45 @@ FOOD_ITEM = [
                 'Addon Category Name': 'Pick Your Studio Crust',
                 'Addon Type': 'Can Select Only One',
                 'Required': True,
-                'Addon Items': [
-                    'Cauliflower Crust (GF)',
-                ]
+                'Custom Value' : ''
+        
             },
+
             {
                 'Addon Category Name': 'Spread Your Sauce',
-                'Addon Type': 'Can Select Muitiple',
+                'Addon Type': 'Custom',
                 'Required': True,
-                'Addon Items': [
-                    'Classic Red Sauce',
-                    'Spicy Red Sauce',
-                    'BBQ Sauce',
-                    'Olive Oil',
-                    'Garlic Ranch Sauce',
-                    'Buffalo Sauce'
-                ]
+                'Custom Value' : '5'
+           
             },
             {
                 'Addon Category Name': 'Choose Your Cheese',
                 'Addon Type': 'Can Select Only One',
                 'Required': True,
-                'Addon Items': [
-                    'Mozzarella',
-                    'Feta',
-                    'Cheddar',
-                    'Parmesan',
-                    'Dairy Free Cheese',
-                    'Vegan Cheese'
-                ]
+                'Custom Value' : ''
+                
+            },
+            {
+                'Addon Category Name': 'Add Your Protein',
+                'Addon Type': 'Can Select Multiple',
+                'Required': False,
+                'Custom Value' : '8'
+                
             },
             {
                 'Addon Category Name': 'Load Your Toppings',
                 'Addon Type': 'Can Select Multiple',
                 'Required': False,
-                'Addon Items': [
-                    'Pepperoni',
-                    'Sausage',
-                    'Canadian Bacon',
-                    'Bacon',
-                    'Grilled Chicken',
-                    'Meatballs',
-                    'Salami',
-                    'Anchovies',
-                    'Artichoke Hearts',
-                    'Black Olives',
-                    'Green Olives',
-                    'Mushrooms',
-                    'Red Onions',
-                    'Green Peppers',
-                    'Banana Peppers',
-                    'Jalapenos',
-                    'Pineapple',
-                    'Spinach',
-                    'Roma Tomatoes',
-                    'Sun-Dried Tomatoes',
-                    'Fresh Basil',
-                    'Fresh Garlic',
-                    'Cilantro',
-                    'Pesto',
-                    'Roasted Red Peppers',
-                    'Roasted Garlic',
-                    'Roasted Mushrooms',
-                    'Roasted Zucchini',
-                    'Roasted Broccoli',
-                    'Roasted Cauliflower',
-                    'Roasted Potatoes',
-                    'Roasted Carrots',
-                    'Roasted Corn',
-                    'Roasted Asparagus',
-                    'Roasted Artichoke Hearts',
-                    'Roasted Jalapenos',
-                    'Roasted Green Peppers',
-                ]
-            },
-            {
-                'Addon Category Name': 'Add Your Protein',
-                'Addon Type': 'Can Select Only One',
-                'Required': False,
-                'Addon Items': [
-                    'Pepperoni',
-                    'Sausage',
-                    'Canadian Bacon',
-                    'Bacon',
-                    'Grilled Chicken',
-                    'Meatballs',
-                    'Salami',
-                    'Anchovies',
-                ]
+                'Custom Value' : ''
+                
             },
             {
                 'Addon Category Name': 'Specialty Toppings',
                 'Addon Type': 'Can Select Multiple',
-                'Required': False,
-                'Addon Items': [
-                    'Pepperoni',
-                    'Sausage',
-                    'Canadian Bacon',
-                    'Bacon',
-                    'Grilled Chicken',
-                    'Meatballs',
-                    'Salami',
-                    'Anchovies',
-                ]
+                'Required': True,
+                'Custom Value' : ''
+ 
             },
-            {
-                'Addon Category Name': 'Specialty Toppings',
-                'Addon Type': 'Can Select Multiple',
-                'Required': False,
-                'Addon Items': [
-                    'Plant Based Meatballs'
-                ]
-            }
         ]
 
     }

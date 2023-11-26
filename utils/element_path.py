@@ -114,9 +114,11 @@ FOOD_ITEM_NAME_ID = 'item_name'
 FOOD_ITEM_PRICE_ID = 'price'
 FOOD_ITEM_SELECTOR = 'jqte_editor'
 FOOD_ITEM_SAVE = '//*[@id="forms"]/div[3]/input'
-FOOD_ITEM_FOOD_CATEGORY_XPATH = '//*[@id="forms"]/div[1]/div[2]/div[11]'
+FOOD_ITEM_ADDON_CATEGORY_XPATH = '//*[@id="forms"]/div[1]/div[2]/div[11]'
 FOOD_ITEM_ADDON_ITEM_XPATH = '//*[@id="forms"]/div[1]/div[1]/ul'
 MULTI_OPTION_21 = 'multi_option_21'
 MULTI_OPTION_22 = 'multi_option_22'
 SAVE_FOOD_ITEM_BUTTON_XPATH = '//*[@id="forms"]/div[3]/input'
 
+ 
+XPATH_FORM  = '//*[@id="forms"]/div[1]/div[1]/ul'
