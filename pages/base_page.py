@@ -2,16 +2,18 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 from selenium.common.exceptions import (
-    StaleElementReferenceException, TimeoutException, NoSuchElementException,
-    ElementNotInteractableException, ElementClickInterceptedException, WebDriverException
+    StaleElementReferenceException, TimeoutException, 
+    NoSuchElementException, ElementNotInteractableException, 
+    ElementClickInterceptedException, WebDriverException
 )
+from pydantic import BaseModel
 
-class BasePage:
-    def __init__(self, driver):
+class BasePage(BaseModel):
+    def __init__(self, driver: object) -> object:
         self.driver = driver
         self.wait = WebDriverWait(driver, 30)
 
-    def click_element(self, locator_type, locator_value):
+    def click_element(self, locator_type: str, locator_value: str) -> None:
         try:
             element = self.wait.until(
                 EC.element_to_be_clickable(
@@ -19,8 +21,9 @@ class BasePage:
                 )
             )
             element.click()
-        except (StaleElementReferenceException, TimeoutException, NoSuchElementException,
-                ElementNotInteractableException, ElementClickInterceptedException, WebDriverException) as e:
+        except (StaleElementReferenceException, TimeoutException, 
+                NoSuchElementException, ElementNotInteractableException, 
+                ElementClickInterceptedException, WebDriverException) as e:
             # Log the exception details here
             # print(f"Exception in click_element: {e}")
             try:
@@ -31,13 +34,14 @@ class BasePage:
                     )
                 )
                 element.click()
-            except (StaleElementReferenceException, TimeoutException, NoSuchElementException,
-                ElementNotInteractableException, ElementClickInterceptedException, WebDriverException) as e:
+            except (StaleElementReferenceException, TimeoutException, 
+                    NoSuchElementException,ElementNotInteractableException, 
+                    ElementClickInterceptedException, WebDriverException) as e:
                 # Handle the case where the second attempt also fails
                 # print(f"Retried click_element failed: {e}")
                 pass
 
-    def enter_text(self, locator_type, locator_value, text):
+    def enter_text(self, locator_type:str , locator_value: str, text: str) -> None:
         try:
             # ele = self.wait.until(EC.)
             element = self.wait.until(

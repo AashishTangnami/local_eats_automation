@@ -11,10 +11,12 @@ from pages.addon_category import AddOnCateogry
 from pages.food_item import FoodItem
 from pages.addon_item import AddOnItem
 from pages.food_item_size import FoodItemSize
-from utils.data import FOOD_CATGEGORIES, ADDON_CATEGORIES, ADDON_ITEMS_1, FOOD_ITEM, ADDON_ITEMS_2, ADDON_ITEMS_3, ADDON_ITEMS_4, ADDON_ITEMS_5, ADDON_ITEMS_6
+from utils.data import FOOD_CATGEGORIES,ADDON_CATEGORIES, ADDON_ITEMS_1, \
+    FOOD_ITEM, ADDON_ITEMS_2, ADDON_ITEMS_3, ADDON_ITEMS_4, ADDON_ITEMS_5, ADDON_ITEMS_6
+
+load_dotenv()
 
 def login_page(driver):
-    load_dotenv()
     login_page = LoginPage(driver)
     username = os.environ.get('USERNAME')
     password = os.environ.get('PASSWORD')
@@ -136,9 +138,8 @@ def food_item_size(driver):
 
 def main():
 
-    url = "https://fareeats.coop/merchant/login"
     driver = DriverFactory.get_chrome_driver()
-    driver.get(url)
+    driver.get(os.environ.get("url"))
     driver.maximize_window()
     driver.implicitly_wait(10)
 

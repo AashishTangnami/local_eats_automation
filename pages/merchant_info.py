@@ -5,10 +5,7 @@ from .base_page import BasePage
 from utils import element_path as ep
 
 
-
 class MerchantInfo(BasePage):
-
-
     def __init__(self, driver):
         super().__init__(driver)
     
@@ -28,8 +25,6 @@ class MerchantInfo(BasePage):
         self.enter_text(ep.CLASS_NAME, ep.JTQE_EDITOR, text)
         self.save(self)
 
-
-    
     def clear_input_field_if_not_empty(self, locator):
         try:
             input_element = self.wait.until(

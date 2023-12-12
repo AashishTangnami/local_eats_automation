@@ -25,7 +25,7 @@ class LoginPage(BasePage):
     def login(self, username, password, locator_type, locator_value):
         self.enter_text(ID, 'username', username)
         self.enter_text(ID, 'password', password)
-        handle_captcha(self, locator_type, locator_value)
+        # handle_captcha(self, locator_type, locator_value)
         self.click_element(XPATH, SIGN_IN_XPATH)
 
 

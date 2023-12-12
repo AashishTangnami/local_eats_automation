@@ -1,9 +1,5 @@
 from .base_page import BasePage
-from selenium.webdriver.common.by import By
-from utils.element_path import XPATH
 
-
-SAVE_BUTTON = ''
 class FoodItemSize(BasePage):
     def __init__(self, driver):
         super().__init__(driver) 

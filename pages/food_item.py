@@ -4,10 +4,6 @@ from pages.base_page import BasePage
 from utils import element_path as ep
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import (
-    StaleElementReferenceException, TimeoutException, NoSuchElementException,
-    ElementNotInteractableException, ElementClickInterceptedException, WebDriverException
-)
 
 class FoodItem(BasePage):
     def __init__(self, driver):
