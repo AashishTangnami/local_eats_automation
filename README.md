@@ -1,1 +1,1 @@
-## Python automation using Selenium to automate menu making process for local eats app.
+## Python automation using Selenium to automate menu update process for local eats app.
